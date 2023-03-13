@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: qmw-test
+  name: qmw-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: qmw-test
+  template:
+    metadata:
+      labels:
+        app: qmw-test
+        build_number: ${BUILD_NUMBER}
+        role: rolling-update
+    spec:
+      containers:
+      - image: 192.168.1.2:5000/qmw-test:latest
+        imagePullPolicy: Always
+        name: qmw-test
+      imagePullSecrets:
+      - name: mydockercredentials
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 1
+

@@ -1,0 +1,7 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.icon.input > input.editable-input {
+    padding-right: 5em !important;
+}

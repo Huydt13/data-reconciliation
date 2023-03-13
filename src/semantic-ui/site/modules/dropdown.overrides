@@ -1,0 +1,34 @@
+/*******************************
+        User Overrides
+*******************************/
+.ui.secondary.inverted.menu .dropdown.item.medical-dropdown:hover,
+.ui.secondary.inverted.menu .dropdown.item.quarantine-dropdown:hover {
+  color: black !important;
+}
+
+.ui.simple.dropdown:hover > .menu > .item:hover > .menu.sub-menu {
+  left: 0 !important;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+  padding-top: 15px !important;
+}
+.ui.menu .ui.dropdown .menu > .item .icon:not(.dropdown) {
+  font-size: .5em !important;
+}
+
+.ui.selection.dropdown.mini-select {
+  font-size: 0.9em !important;
+  min-width: 14em !important;
+}
+
+.ui.search.dropdown.mini-select > input.search {
+  width: calc(100% - 35px) !important;
+}
+.ui.search.dropdown.mini-select.multiple > input.search {
+  width: 14em !important;
+}
+
+.ui.dropdown.mini-select > .clear.icon:before {
+  content: '\f110' !important;
+}

@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,600&display=swap');
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  font-weight: 400;
+}
+/* .ui.inverted.segment {
+  background: rgb(51, 51, 51) !important;
+} */
+.d-none {
+  display: none !important;
+}
+.ui.dimmer {
+  z-index: 10 !important;
+  padding-top: 64px !important;
+}
+.maps-wi-list .item {
+  display: flex !important;
+}
+.maps-wi-list .item svg {
+  margin-right: 4px !important;
+}
+.ui.celled.list > .item:first-child,
+.ui.celled.list > .item:last-child {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.ui.vertical.menu .dropdown.item:not(.upward) .menu {
+  top: 15px !important;
+}
+.ui.vertical.menu .dropdown.item .menu {
+  position: relative;
+  left: 0 !important;
+  width: 260px;
+  margin-left: -18px !important;
+  border-radius: 0 !important;
+}
+.pushable .header.item {
+  padding: 18px !important;
+}
+.menu.secondary a.item {
+  margin: 0 !important;
+  padding: 10px !important;
+}
+@media only screen and (min-width: 768px) {
+  .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless)
+    > .container
+    > .item:not(.right):not(.borderless):first-child {
+    border-left: none !important;
+  }
+}
+.compact-header thead th {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+.ui.large.menu {
+  transition-duration: 0.2s;
+}
+
+.DayPickerInput {
+  width: 100%;
+}
+.DayPicker-Day {
+  padding: 6px 8px;
+}
+.ui.breadcrumb a.section {
+  font-weight: bold;
+}
+.center.aligned.header {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+.ui.form .field > label {
+  font-weight: normal !important;
+}
+.type-label {
+  min-width: 45px;
+  text-align: center;
+}
+
+.ui.search.dropdown {
+  min-width: auto !important;
+}
+.InputFromTo .DayPickerInput {
+  width: auto !important;
+}
+.InputFromTo-to .DayPickerInput {
+  width: auto !important;
+}
+.InputFromTo
+  .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+  background-color: #f0f8ff !important;
+  color: #4a90e2;
+}
+.InputFromTo .DayPicker-Day {
+  border-radius: 0 !important;
+}
+.InputFromTo .DayPicker-Day--start {
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+}
+.InputFromTo .DayPicker-Day--end {
+  border-top-right-radius: 50% !important;
+  border-bottom-right-radius: 50% !important;
+}
+.InputFromTo .DayPickerInput-Overlay {
+  width: 550px;
+}
+.InputFromTo-to .DayPickerInput-Overlay {
+  margin-left: -198px;
+}
+.DayPickerInput-Overlay.overlay-top {
+  bottom: 45px;
+}
+
+.ContactLocationForm .ui.selection.dropdown {
+  min-width: auto !important;
+}
+.recharts-legend-wrapper {
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  bottom: 0;
+}
+.people-chart .recharts-legend-wrapper,
+.examination-detail-chart .recharts-legend-wrapper {
+  bottom: -5% !important;
+}
+.ui.selection.dropdown {
+  min-width: auto !important;
+}
+@media only screen and (max-width: 768px) {
+  .toggle-display {
+    display: none !important;
+  }
+  .ui.menu > .container {
+    justify-content: center;
+  }
+}
+.ui.form textarea {
+  font-family: inherit !important;
+}
+.ui.inverted.menu .item {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.ui.secondary.menu .dropdown.item > .menu {
+  margin-top: 0 !important;
+}
+.ui.top.popup {
+  margin: 0 0 1.4em !important;
+}
+.line-chart
+  .recharts-xAxis
+  .recharts-cartesian-axis-tick:not(:first-child):not(:last-child) {
+  display: none !important;
+}
+.medical-dropdown .dropdown.icon:before,
+.quarantine-dropdown .dropdown.icon:before {
+  display: none;
+}
+input[type='time'] {
+  padding-top: 0.47rem !important;
+  padding-bottom: 0.47rem !important;
+}
+.facility-list .ui.selection.list > .item.active {
+  background: rgba(114, 143, 165, 0.3) !important;
+}
+
+.facility-list .ui.selection.list.list > .item:hover,
+.facility-list .ui.selection.list > .item:hover {
+  background: rgba(114, 143, 165, 0.1) !important;
+  color: rgba(0, 0, 0, 0.8);
+}
+/* color of tab menu in profile detail */
+.anonymous-examination-tab .ui.pointing.secondary.menu > .item:first-child {
+  color: red;
+}
+
+.disabled.field input {
+  opacity: 1 !important;
+}
+
+.visitor-accordion.ui.accordion .accordion {
+  margin: 0 !important;
+}
+.ui.form .disabled.field {
+  opacity: 1 !important;
+}
+
+.overlay-wrapper-top {
+  position: absolute;
+  top: 50% !important;
+}

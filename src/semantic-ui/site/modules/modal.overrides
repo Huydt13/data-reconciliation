@@ -1,0 +1,9 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.fullscreen.modal.quickReceiveExam {
+  width: 98% !important;
+}
+.ui.fullscreen.modal.quickReceiveExam .scrolling.content {
+  min-height: calc(80vh - 10em) !important;
+}

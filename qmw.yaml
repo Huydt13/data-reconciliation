@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cds
+  name: cds
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: cds
+  template:
+    metadata:
+      labels:
+        app: cds
+        build_number: ${BUILD_NUMBER}
+        role: rolling-update
+    spec:
+      containers:
+      - image: 202.78.227.173:5000/cds:latest
+        imagePullPolicy: Always
+        name: cds
+      imagePullSecrets:
+      - name: mydockercredentials
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 1
+

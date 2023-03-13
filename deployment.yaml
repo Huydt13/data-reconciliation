@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quarantine-manager-web
+  namespace: default
+  labels:
+    app: quarantine-manager-web
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quarantine-manager-web
+  template:
+    metadata:
+      labels:
+        app: quarantine-manager-web
+        role: rolling-update
+        build_number: "<TAG>"
+    spec:
+      containers:
+        - name: quarantine-manager-web
+          image: "bakcovn/quarantine-manager-web:latest"
+      imagePullSecrets:
+        - name: regcred
+  strategy:
+    type: RollingUpdate
