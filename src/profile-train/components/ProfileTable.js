@@ -6,8 +6,11 @@ import { useSelector } from "react-redux";
 import { getProfiles } from "profile/actions/profile";
 import PropTypes from "prop-types";
 import { formatAddressToString, renderProfileKey } from "app/utils/helpers";
-import { FiFileText } from "react-icons/fi";
+import { FiFileText, FiUpload } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
+import ProfileFilter from "./ProfileFilter";
+import ImportModal from "./ImportModal";
+
 const columns = [
   {
     Header: "ID hồ sơ",
@@ -32,10 +35,10 @@ const columns = [
     formatter: ({ addressesInVietnam }) =>
       formatAddressToString(addressesInVietnam[0]),
   },
-  {
-    Header: "Thông tin xác thực",
-    formatter: (r) => renderProfileKey({ ...r, keyWithAddress: false }),
-  },
+  // {
+  //   Header: "Thông tin xác thực",
+  //   formatter: (r) => renderProfileKey({ ...r, keyWithAddress: false }),
+  // },
   { Header: "Số điện thoại", accessor: "phoneNumber" },
 ];
 const ProfileTable = ({ hasGroupProfiles }) => {
@@ -43,6 +46,8 @@ const ProfileTable = ({ hasGroupProfiles }) => {
   const [pageIndex, setpageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [groupProfile, setGroupProfile] = useState(undefined);
+  const [importGroupRisk, setImportGroupRisk] = useState(false);
+
   const history = useHistory();
   const {
     profileList,
@@ -73,6 +78,7 @@ const ProfileTable = ({ hasGroupProfiles }) => {
   const { data, totalRows, totalPages } = profileList;
   return (
     <div>
+      <ProfileFilter onChange={setFilter} />
       <DataTable
         columns={columns}
         data={(data || []).map((r, i) => ({ ...r, index: i + 1 }))}
@@ -96,7 +102,19 @@ const ProfileTable = ({ hasGroupProfiles }) => {
             // eslint-disable-next-line no-dupe-keys
             disabled: false,
           },
+          {
+            icon: <FiUpload />,
+            title: "Import",
+            color: "green",
+            onClick: () => setImportGroupRisk(true),
+            globalAction: true,
+          },
         ]}
+      />
+      <ImportModal
+        open={importGroupRisk}
+        onClose={() => setImportGroupRisk(false)}
+        onRefresh={getData}
       />
     </div>
   );

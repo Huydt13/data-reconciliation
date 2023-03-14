@@ -586,6 +586,14 @@ const routes = [
     isPrivate: true,
     exact: false,
   },
+  // data reconciliation
+  {
+    path: "/test",
+    component: ProfileTrain,
+    layout: AppLayout,
+    isPrivate: true,
+    exact: false,
+  },
   {
     component: PageNotFound,
     layout: null,
