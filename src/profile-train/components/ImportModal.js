@@ -45,7 +45,7 @@ import React, {
   import { IMMUNIZATION_STATUSES } from 'profile/utils/constants';
   
   import locations from 'app/assets/mock/locations';
-  import excelTemplate from 'app/assets/excels/Mẫu import hồ sơ thuộc nhóm nguy cơ.xlsx';
+  import excelTemplate from 'app/assets/excels/Mẫu import hồ sơ thuộc nhóm nguy cơ-test.xlsx';
   
   const Wrapper = styled.div`
     position: relative;
@@ -61,12 +61,6 @@ import React, {
     }
   `;
   
-  const resultsOfExam = ['Dương tính', 'Âm tính'];
-  const immunizationStatusOptions = [
-    { key: 1, value: IMMUNIZATION_STATUSES.NO_VACCINE, text: 'Chưa tiêm' },
-    { key: 2, value: IMMUNIZATION_STATUSES.ONE_SHOT, text: 'Tiêm 1 mũi' },
-    { key: 3, value: IMMUNIZATION_STATUSES.TWO_SHOT, text: 'Tiêm 2 mũi' },
-  ];
   
   const steps = {
     downloadTemplate: 0,
@@ -392,47 +386,47 @@ import React, {
         //     return false;
         //   },
         // },
-        {
-          header: 'Có bệnh lý nền(*)',
-          assign: 'underlyingDiseases',
-          formatter: (value) =>
-            value.toString().includes(';')
-              ? value
-                .toString()
-                .split(';')
-                .filter((v) =>
-                  (underlyingDiseaseList || []).find(
-                    (u) => u.index === parseInt(v, 10),
-                  ),
-                )
-                .map((u) => u.id)
-              : (underlyingDiseaseList || [])
-                .filter((u) => u.index === parseInt(value.toString(), 10))
-                .map((u) => u.id),
-          validate: (__, value) => {
-            if (typeof value === 'undefined') {
-              return 'Bắt buộc phải nhập có bệnh lý nền';
-            }
-            const underlyingDiseaseIndexList = (underlyingDiseaseList || []).map(
-              (u) => u.index,
-            );
-            const difference = value.toString().includes(';')
-              ? value
-                .toString()
-                .split(';')
-                .filter(
-                  (v) =>
-                    v && !underlyingDiseaseIndexList.includes(parseInt(v, 10)),
-                )
-              : !underlyingDiseaseIndexList.includes(parseInt(value, 10))
-                ? [value]
-                : [];
-            if (Array.isArray(difference) && difference.length > 0) {
-              return 'Bệnh nền không hợp lệ';
-            }
-            return false;
-          },
-        },
+        // {
+        //   header: 'Có bệnh lý nền(*)',
+        //   assign: 'underlyingDiseases',
+        //   formatter: (value) =>
+        //     value.toString().includes(';')
+        //       ? value
+        //         .toString()
+        //         .split(';')
+        //         .filter((v) =>
+        //           (underlyingDiseaseList || []).find(
+        //             (u) => u.index === parseInt(v, 10),
+        //           ),
+        //         )
+        //         .map((u) => u.id)
+        //       : (underlyingDiseaseList || [])
+        //         .filter((u) => u.index === parseInt(value.toString(), 10))
+        //         .map((u) => u.id),
+        //   validate: (__, value) => {
+        //     if (typeof value === 'undefined') {
+        //       return 'Bắt buộc phải nhập có bệnh lý nền';
+        //     }
+        //     const underlyingDiseaseIndexList = (underlyingDiseaseList || []).map(
+        //       (u) => u.index,
+        //     );
+        //     const difference = value.toString().includes(';')
+        //       ? value
+        //         .toString()
+        //         .split(';')
+        //         .filter(
+        //           (v) =>
+        //             v && !underlyingDiseaseIndexList.includes(parseInt(v, 10)),
+        //         )
+        //       : !underlyingDiseaseIndexList.includes(parseInt(value, 10))
+        //         ? [value]
+        //         : [];
+        //     if (Array.isArray(difference) && difference.length > 0) {
+        //       return 'Bệnh nền không hợp lệ';
+        //     }
+        //     return false;
+        //   },
+        // },
         // {
         //   header: 'Thời gian nhiễm(mm/yyyy)',
         //   assign: 'infectedDate',
