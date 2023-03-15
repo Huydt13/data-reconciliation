@@ -35,7 +35,7 @@ const MenuItems = () => {
             <span>Data reconciliation</span>
           </>
         }
-        onClick={() => history.push("/test")}
+        onClick={() => history.push("/home")}
       />
       {/* <Menu.Item as={Link} to="/test" content="Test" /> */}
     </>
