@@ -5,41 +5,52 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getProfiles } from "profile/actions/profile";
 import PropTypes from "prop-types";
-import { formatAddressToString, renderProfileKey } from "app/utils/helpers";
-import { FiFileText, FiUpload } from "react-icons/fi";
+import { FiFileText, FiUpload, FiList } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import ProfileFilter from "./ProfileFilter";
 import ImportModal from "./ImportModal";
 
 const columns = [
   {
-    Header: "ID hồ sơ",
+    Header: "STT",
     accessor: "id",
   },
   {
-    Header: "Tên",
-    formatter: ({ fullName }) => fullName || "",
+    Header: "Tên file",
+    formatter: ({ file }) => file || "",
     cutlength: 50,
   },
   {
-    Header: "Ngày sinh",
+    Header: "Ngày tạo",
     formatter: (row) =>
-      row.dateOfBirth
-        ? !row.hasYearOfBirthOnly
-          ? moment(row.dateOfBirth).format("DD-MM-YYYY")
-          : moment(row.dateOfBirth).format("YYYY")
+      row.dateStart
+        ? !row.hasYearStart
+          ? moment(row.dateStart).format("DD-MM-YYYY")
+          : moment(row.dateStart).format("YYYY")
         : "Chưa xác định",
   },
   {
-    Header: "Địa chỉ nhà",
-    formatter: ({ addressesInVietnam }) =>
-      formatAddressToString(addressesInVietnam[0]),
+    Header: "Ngày xóa file",
+    formatter: (row) =>
+      row.dateDeleteFile
+        ? !row.hasYearDeleteFile
+          ? moment(row.dateDeleteFile).format("DD-MM-YYYY")
+          : moment(row.dateDeleteFile).format("YYYY")
+        : "Chưa xác định",
   },
+  // {
+  //   Header: "Địa chỉ nhà",
+  //   formatter: ({ addressesInVietnam }) =>
+  //     formatAddressToString(addressesInVietnam[0]),
+  // },
   // {
   //   Header: "Thông tin xác thực",
   //   formatter: (r) => renderProfileKey({ ...r, keyWithAddress: false }),
   // },
-  { Header: "Số điện thoại", accessor: "phoneNumber" },
+  { Header: "Tiến trình", accessor: "process" },
+  { Header: "Trạng thái", accessor: "status" },
+  { Header: "Lỗi", accessor: "error" },
+  { Header: "Dữ liệu", accessor: "data", icon: <FiList /> },
 ];
 const ProfileTable = ({ hasGroupProfiles }) => {
   const [filter, setFilter] = useState({});

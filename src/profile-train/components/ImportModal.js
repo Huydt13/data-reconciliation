@@ -45,7 +45,7 @@ import React, {
   import { IMMUNIZATION_STATUSES } from 'profile/utils/constants';
   
   import locations from 'app/assets/mock/locations';
-  import excelTemplate from 'app/assets/excels/Mẫu import hồ sơ thuộc nhóm nguy cơ-test.xlsx';
+  import excelTemplate from 'app/assets/excels/file test.xlsx';
   
   const Wrapper = styled.div`
     position: relative;
